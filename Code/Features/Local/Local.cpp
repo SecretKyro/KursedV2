@@ -111,4 +111,13 @@ namespace Base
 
 		g_LastGodMode = enable;
 	}
+
+	void LocalFeatures::SlideRun(bool enable, float value)
+	{
+		if (enable)
+		{
+			if (PAD::IS_CONTROL_PRESSED(0, 32) && PAD::IS_CONTROL_PRESSED(0, 21) && !PED::IS_PED_RAGDOLL(PLAYER::PLAYER_PED_ID()) && PED::IS_PED_ON_FOOT(PLAYER::PLAYER_PED_ID()))
+				ENTITY::APPLY_FORCE_TO_ENTITY(PLAYER::PLAYER_PED_ID(), 1, 0.f, value, 0.0f, 0.0f, 0.0f, 0.0f, FALSE, TRUE, TRUE, TRUE, FALSE, TRUE);
+		}
+	}
 }

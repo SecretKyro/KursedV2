@@ -39,9 +39,6 @@ namespace Base
 		using namespace UserInterface;
 		Invoker::CacheHandlers();
 
-		g_CustomText->AddText(CONSTEXPR_JOAAT("HUD_JOINING"), "Isn't " Kursed_NAME " the fucking best?");
-		g_CustomText->AddText(CONSTEXPR_JOAAT("HUD_TRANSP"), "Isn't " Kursed_NAME " the fucking best?");
-
 		g_UiManager->AddSubmenu<RegularSubmenu>("Home", Home, [](RegularSubmenu* sub)
 			{
 				sub->AddOption<SubOption>("Self", nullptr, Self);
@@ -62,6 +59,7 @@ namespace Base
 
 		g_UiManager->AddSubmenu<RegularSubmenu>("Movement", Movement, [](RegularSubmenu* sub)
 			{
+				sub->AddOption<SubOption>("Slide Run", nullptr, rage::joaat("SlideRun"));
 				sub->AddOption<BoolOption<bool>>("Super Man", nullptr, &g_LocalFeatures->m_SuperMan);
 				sub->AddOption<BoolOption<bool>>("Super Jump", nullptr, &g_LocalFeatures->m_SuperJump);
 				sub->AddOption<BoolOption<bool>>("Beast Jump", nullptr, &g_LocalFeatures->m_BeastJump);
@@ -69,8 +67,13 @@ namespace Base
 				sub->AddOption<BoolOption<bool>>("Graceful Landing", nullptr, &g_LocalFeatures->m_GracefulLanding);
 				sub->AddOption<BoolOption<bool>>("Fast Run", nullptr, &g_LocalFeatures->m_FastRun);
 				sub->AddOption<BoolOption<bool>>("Fast Swim", nullptr, &g_LocalFeatures->m_FastSwim);
+				
 			});
-
+		g_UiManager->AddSubmenu<RegularSubmenu>("Slide Run", rage::joaat("SlideRun"), [](RegularSubmenu* sub)
+			{
+				sub->AddOption<BoolOption<bool>>("Enabled", nullptr, &g_LocalFeatures->m_EnableSlideRun);
+				sub->AddOption<NumberOption<float>>("Speed", nullptr, &g_LocalFeatures->m_SlideRun, 0.f, 100, 0.1f, 1);
+			});
 		g_UiManager->AddSubmenu<RegularSubmenu>("Network", Network, [](RegularSubmenu* sub)
 			{
 				sub->AddOption<SubOption>("Playerlist", nullptr, PlayerList);

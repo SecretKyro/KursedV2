@@ -37,16 +37,16 @@ namespace Base
 		io.IniFilename = nullptr; // Crucial for not leaving the ImGui.ini file
 
 		m_FontConfig.FontDataOwnedByAtlas = false;
-		m_RegularFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("{}\\Documents\\{}\\Fonts\\Roboto-Regular.ttf", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), 22.f, &m_FontConfig);
-		m_HeaderFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("{}\\Documents\\{}\\Fonts\\HeaderFont.ttf", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), 70.f, &m_FontConfig);
-		m_BoldFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("{}\\Documents\\{}\\Fonts\\Roboto-Bold.ttf", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), 22.f, &m_FontConfig);
-		m_BoldItalicFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("{}\\Documents\\{}\\Fonts\\Roboto-BoldItalic.ttf", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), 22.f, &m_FontConfig);
+		m_RegularFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("C:\\{}\\Fonts\\Roboto-Regular.ttf", Kursed_NAME).c_str(), 22.f, &m_FontConfig);
+		m_HeaderFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("C:\\{}\\Fonts\\HeaderFont.ttf", Kursed_NAME).c_str(), 70.f, &m_FontConfig);
+		m_BoldFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("C:\\{}\\Fonts\\Roboto-Bold.ttf", Kursed_NAME).c_str(), 22.f, &m_FontConfig);
+		m_BoldItalicFont = ImGui::GetIO().Fonts->AddFontFromFileTTF(std::format("C:\\{}\\Fonts\\Roboto-BoldItalic.ttf", Kursed_NAME).c_str(), 22.f, &m_FontConfig);
 		//m_BaseArial = ImGui::GetIO().Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\Arial.ttf", 22.f, &m_FontConfig);
-		LoadTextureFromFile(std::format("{}\\Documents\\{}\\Textures\\ArrowDown.png", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), m_Device, &m_ArrowDown, &m_ArrowDownSize.x, &m_ArrowDownSize.y);
-		LoadTextureFromFile(std::format("{}\\Documents\\{}\\Textures\\ArrowUp.png", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), m_Device, &m_ArrowUp, &m_ArrowUpSize.x, &m_ArrowUpSize.y);
-		LoadTextureFromFile(std::format("{}\\Documents\\{}\\Textures\\Arrows.png", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), m_Device, &m_Arrows, &m_ArrowsSize.x, &m_ArrowsSize.y);
-		LoadTextureFromFile(std::format("{}\\Documents\\{}\\Textures\\ArrowRight.png", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), m_Device, &m_ArrowRight, &m_ArrowRightSize.x, &m_ArrowRightSize.y);
-		LoadTextureFromFile(std::format("{}\\Documents\\{}\\Textures\\Toggle.png", std::getenv("USERPROFILE"), Kursed_NAME).c_str(), m_Device, &m_Toggle, &m_ToggleSize.x, &m_ToggleSize.y);
+		LoadTextureFromFile(std::format("C:\\{}\\Textures\\ArrowDown.png", Kursed_NAME).c_str(), m_Device, &m_ArrowDown, &m_ArrowDownSize.x, &m_ArrowDownSize.y);
+		LoadTextureFromFile(std::format("C:\\{}\\Textures\\ArrowUp.png", Kursed_NAME).c_str(), m_Device, &m_ArrowUp, &m_ArrowUpSize.x, &m_ArrowUpSize.y);
+		LoadTextureFromFile(std::format("C:\\{}\\Textures\\Arrows.png", Kursed_NAME).c_str(), m_Device, &m_Arrows, &m_ArrowsSize.x, &m_ArrowsSize.y);
+		LoadTextureFromFile(std::format("C:\\{}\\Textures\\ArrowRight.png", Kursed_NAME).c_str(), m_Device, &m_ArrowRight, &m_ArrowRightSize.x, &m_ArrowRightSize.y);
+		LoadTextureFromFile(std::format("C:\\{}\\Textures\\Toggle.png", Kursed_NAME).c_str(), m_Device, &m_Toggle, &m_ToggleSize.x, &m_ToggleSize.y);
 	}
 
 	D3DRenderer::~D3DRenderer() noexcept
